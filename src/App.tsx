@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+
 import "./App.css";
 
 const piCountries = [
@@ -25,6 +27,8 @@ const piCountries = [
 function App() {
   const [country, setCountry] = useState("🌍 Chọn quốc gia");
   const [showSelector, setShowSelector] = useState(false);
+  const { t, i18n } = useTranslation();
+
 
   return (
     <div className="zone-app">
