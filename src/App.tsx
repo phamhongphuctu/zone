@@ -1,26 +1,44 @@
-import { useEffect, useState } from "react";
-import { initPi, loginWithPi } from "./pi";
-import SlotGame from "./SlotGame";
+import "./App.css";
 
 function App() {
-  const [username, setUsername] = useState<string | null>(null);
-
-  useEffect(() => {
-    initPi();
-    loginWithPi().then(setUsername);
-  }, []);
-
   return (
-    <div style={{ textAlign: "center", paddingTop: "50px" }}>
-      <h1>Pi Slot Game</h1>
-      {username ? (
-        <>
-          <p>Xin chào, {username}!</p>
-          <SlotGame />
-        </>
-      ) : (
-        <p>Đang đăng nhập bằng Pi...</p>
-      )}
+    <div className="zone-app">
+      <header className="zone-header">
+        <h1>🛒 Zone Marketplace</h1>
+        <input type="text" placeholder="Tìm sản phẩm..." />
+      </header>
+
+      <section className="zone-banner">
+        <img src="https://via.placeholder.com/600x200?text=Khuyen+Mai+Pi" alt="Banner" />
+      </section>
+
+      <section className="zone-categories">
+        <h2>Danh mục</h2>
+        <div className="zone-category-list">
+          <div className="zone-category">💄 Làm đẹp</div>
+          <div className="zone-category">👕 Thời trang</div>
+          <div className="zone-category">📱 Công nghệ</div>
+          <div className="zone-category">🍎 Thực phẩm</div>
+        </div>
+      </section>
+
+      <section className="zone-products">
+        <h2>Gợi ý hôm nay</h2>
+        <div className="zone-product-list">
+          <div className="zone-product-card">
+            <img src="https://via.placeholder.com/150" />
+            <p>Áo thun nam</p>
+            <p>Giá: 2 Pi</p>
+            <button>Mua ngay</button>
+          </div>
+          <div className="zone-product-card">
+            <img src="https://via.placeholder.com/150" />
+            <p>Điện thoại</p>
+            <p>Giá: 35 Pi</p>
+            <button>Mua ngay</button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
