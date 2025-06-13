@@ -1,25 +1,52 @@
+import { useState } from "react";
 import "./App.css";
 
+const piCountries = [
+  "🇦🇺 Australia",
+  "🇧🇩 Bangladesh",
+  "🇧🇷 Brazil",
+  "🇨🇴 Colombia",
+  "🇩🇪 Đức",
+  "🇪🇸 Tây Ban Nha",
+  "🇫🇷 Pháp",
+  "🇬🇧 Anh Quốc",
+  "🇮🇳 Ấn Độ",
+  "🇮🇩 Indonesia",
+  "🇮🇹 Ý",
+  "🇰🇷 Hàn Quốc",
+  "🇲🇽 Mexico",
+  "🇳🇬 Nigeria",
+  "🇵🇭 Philippines",
+  "🇹🇭 Thái Lan",
+  "🇺🇸 Hoa Kỳ",
+  "🇻🇳 Việt Nam"
+];
+
 function App() {
+  const [country, setCountry] = useState("🌍 Chọn quốc gia");
+  const [showSelector, setShowSelector] = useState(false);
+
   return (
     <div className="zone-app">
       <header className="zone-header">
         <h1>🛒 Zone Marketplace</h1>
-        <input type="text" placeholder="Tìm sản phẩm..." />
+        <button onClick={() => setShowSelector(!showSelector)} className="zone-country-btn">
+          {country}
+        </button>
       </header>
 
-      <section className="zone-banner">
-        <img src="https://via.placeholder.com/600x200?text=Khuyen+Mai+Pi" alt="Banner" />
-      </section>
-
-      <section className="zone-categories">
-        <h2>Danh mục</h2>
-        <div className="zone-category-list">
-          <div className="zone-category">💄 Làm đẹp</div>
-          <div className="zone-category">👕 Thời trang</div>
-          <div className="zone-category">📱 Công nghệ</div>
-          <div className="zone-category">🍎 Thực phẩm</div>
+      {showSelector && (
+        <div className="zone-country-list">
+          {piCountries.map((c) => (
+            <button key={c} onClick={() => { setCountry(c); setShowSelector(false); }}>
+              {c}
+            </button>
+          ))}
         </div>
+      )}
+
+      <section className="zone-banner">
+        <img src="https://via.placeholder.com/600x200?text=Chao+mung+den+Zone" alt="Banner" />
       </section>
 
       <section className="zone-products">
