@@ -2,11 +2,12 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "jsx": "react-jsx",        // ✅ DÒNG QUAN TRỌNG
+    "jsx": "react-jsx",
     "module": "ESNext",
     "moduleResolution": "Node",
-    "strict": true,
+    "resolveJsonModule": true,
     "esModuleInterop": true,
+    "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
