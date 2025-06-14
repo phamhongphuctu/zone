@@ -99,3 +99,14 @@ body {
   width: 100%;
   border-radius: 5px;
 }
+.zone-search-input {
+  width: 100%;
+  max-width: 400px;
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 1rem;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center; /* 🔥 Canh giữa placeholder */
+}
