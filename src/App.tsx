@@ -142,14 +142,25 @@ function App() {
 )}
 
 {["vi", "us", "es"].includes(countryCode || "") && (
-  <input
-    type="text"
-    value={searchTerm}
-    onChange={(e) => setSearchTerm(e.target.value)}
-    placeholder={t("search_placeholder")}
-    className="zone-search-input"
-  />
-)}
+    <div className="zone-search-wrapper">
+      <input
+        type="text"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        placeholder={t("search_placeholder")}
+        className="zone-search-input"
+      />
+      <button
+        type="button"
+        onClick={() => console.log("Tìm: ", searchTerm)}
+        className="zone-search-icon"
+      >
+        🔍
+      </button>
+    </div>
+  )}
+
+
 
 <section className="zone-banner">
 

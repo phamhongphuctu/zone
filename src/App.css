@@ -99,15 +99,34 @@ body {
   width: 100%;
   border-radius: 5px;
 }
-.zone-search-input {
-  width: 100%;
-  max-width:100px;     /* 👈 Giảm kích thước chiều rộng */
-  margin: 10px auto;
-  padding: 8px;
-  font-size: 0.9rem;     /* 👈 Chữ nhỏ lại chút */
-  display: block;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  text-align: center;    /* 👈 Placeholder căn giữa */
+.zone-search-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px; /* khoảng cách giữa input và nút */
+  margin: 10px 0;
 }
 
+.zone-search-input {
+  width: 100%;
+  max-width: 130px;
+  padding: 8px;
+  font-size: 0.8rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.zone-search-icon {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 1rem; /* 👈 cho to ra */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.zone-search-icon:hover {
+  background-color: #e2e2e2;
+}
