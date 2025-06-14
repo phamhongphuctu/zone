@@ -8,8 +8,8 @@ import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserProvider } from "./context/UserContext";
 
-// 👇 Import để khai báo window.Pi nếu đã tạo src/types/global.d.ts
-import "./types/global";
+
+import "../types/global"; // 
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
