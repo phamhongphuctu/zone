@@ -101,12 +101,13 @@ body {
 }
 .zone-search-input {
   width: 100%;
-  max-width: 400px;
+  max-width:100px;     /* 👈 Giảm kích thước chiều rộng */
   margin: 10px auto;
-  padding: 10px;
-  font-size: 1rem;
+  padding: 8px;
+  font-size: 0.9rem;     /* 👈 Chữ nhỏ lại chút */
   display: block;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  text-align: center; /* 🔥 Canh giữa placeholder */
+  border-radius: 6px;
+  text-align: center;    /* 👈 Placeholder căn giữa */
 }
+
