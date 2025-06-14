@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import BottomNav from "./components/BottomNav";
-
+import Categories from "./pages/Categories";
 
 
 import "./App.css";

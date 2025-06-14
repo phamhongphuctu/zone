@@ -8,14 +8,17 @@ export default function BottomNav() {
         <Home size={20} />
         <span>Home</span>
       </div>
-      <div className="zone-nav-item">
+
+      <div className="zone-nav-item" onClick={() => (window.location.href = "/categories")}>
         <ShoppingBag size={20} />
         <span>Categories</span>
       </div>
+
       <div className="zone-nav-item">
         <User size={20} />
         <span>You</span>
       </div>
+
       <div className="zone-nav-item">
         <ShoppingCart size={20} />
         <span>Cart</span>
