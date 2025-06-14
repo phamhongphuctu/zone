@@ -1,29 +1,22 @@
 {
-    "welcome": "Bienvenido a Zone",
-    "suggestion_today": "Sugerencias de hoy",
-    "buy_now": "Comprar ahora",
-    "select_country": "Seleccionar país",
-    "country": "País",
-    "choose_country": "Elige país...",
-    "search_placeholder": "Buscar productos...",
+  "welcome": "Bienvenido a Zone",
+  "suggestion_today": "Sugerencias de hoy",
+  "buy_now": "Comprar ahora",
+  "select_country": "Seleccionar país",
+  "country": "País",
+  "choose_country": "Elige país...",
+  "search_placeholder": "Buscar productos...",
 
-
-    
-      "profile": "Perfil",
-      "your_name": "Tu nombre",
-      "wallet_address": "Dirección de billetera",
-      "language": "Idioma",
-      "pi_won": "Pi ganado",
-      "sell_product": "Publicar producto",
-"product_name": "Nombre del producto",
-"price": "Precio",
-"description": "Descripción",
-"submit": "Enviar",
-"create_sell_post": "Crear publicación de venta",
-"exit": "Salir"
-
-
-
-    }
-    
-  
+  "profile": "Perfil",
+  "your_name": "Tu nombre",
+  "wallet_address": "Dirección de billetera",
+  "language": "Idioma",
+  "pi_won": "Pi ganado",
+  "sell_product": "Publicar producto",
+  "product_name": "Nombre del producto",
+  "price": "Precio",
+  "description": "Descripción",
+  "submit": "Enviar",
+  "create_sell_post": "Crear publicación de venta",
+  "exit": "Salir"
+}
