@@ -105,11 +105,12 @@ function App() {
       <header className="zone-header">
         <h1>🛒 Zone Marketplace</h1>
         <button
-          onClick={() => setShowSelector(!showSelector)}
-          className="zone-country-btn"
-        >
-          {country}
-        </button>
+  onClick={() => setShowSelector(!showSelector)}
+  className="zone-country-btn"
+>
+  {country === "🌍 Chọn quốc gia" ? "🌍 Choose country" : country}
+</button>
+
       </header>
 
       {showSelector && (
