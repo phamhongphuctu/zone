@@ -4,7 +4,9 @@
     "buy_now": "Buy now",
     "select_country": "Select country",
     "country": "Country",
-    "choose_country": "Choose country..."
+    "choose_country": "Choose country...",
+    "search_placeholder": "Search products..."
+
 
   }
   
