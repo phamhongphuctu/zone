@@ -1,10 +1,13 @@
 // src/components/BottomNav.tsx
 import { Home, ShoppingBag, User, ShoppingCart } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function BottomNav() {
+  const navigate = useNavigate();
+
   return (
     <nav className="zone-bottom-nav">
-      <div className="zone-nav-item">
+      <div className="zone-nav-item" onClick={() => navigate("/")}>
         <Home size={20} />
         <span>Home</span>
       </div>
