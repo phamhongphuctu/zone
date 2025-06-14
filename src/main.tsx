@@ -1,13 +1,15 @@
-import { StrictMode } from 'react'
-import "./i18n"; // ✅ import hệ thống i18n trước khi render App
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./i18n"; // giữ nguyên dòng này
+import "./index.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from "./App"; // ✅ đúng chuẩn
-
-
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/:countryCode" element={<App />} />
+    </Routes>
+  </BrowserRouter>
+);

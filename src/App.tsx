@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate, useParams } from "react-router-dom";
+
 import "./App.css";
 
 const piCountries = [
@@ -27,6 +29,9 @@ function App() {
   const [country, setCountry] = useState("🌍 Chọn quốc gia");
   const [showSelector, setShowSelector] = useState(false);
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
+  const { countryCode } = useParams();
+
 
   // 👉 Khi chọn quốc gia
   const handleSelectCountry = (code: string, label: string) => {
@@ -34,19 +39,23 @@ function App() {
     setShowSelector(false);
     i18n.changeLanguage(code);
     localStorage.setItem("zone_country", code);
+    navigate(`/${code}`); // 👉 Điều hướng sang trang /vi, /us,...
   };
+
 
   // 👉 Load lại ngôn ngữ khi mở lại app
   useEffect(() => {
-    const saved = localStorage.getItem("zone_country");
-    if (saved) {
-      const found = piCountries.find((c) => c.code === saved);
+    const fromRoute = countryCode || localStorage.getItem("zone_country");
+    if (fromRoute) {
+      const found = piCountries.find((c) => c.code === fromRoute);
       if (found) {
         setCountry(found.label);
-        i18n.changeLanguage(saved);
+        i18n.changeLanguage(fromRoute);
       }
     }
-  }, []);
+  }, [countryCode]);
+
+  
 
   return (
    
