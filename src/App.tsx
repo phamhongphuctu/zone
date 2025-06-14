@@ -123,8 +123,9 @@ function App() {
           defaultValue=""
         >
           <option value="" disabled>
-            🌍 Chọn quốc gia...
-          </option>
+  🌍 {t("choose_country")}
+</option>
+
           {piCountries.map((c) => (
             <option key={c.code} value={c.code}>
               {c.label}
