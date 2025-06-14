@@ -1,16 +1,23 @@
 {
-    "banner": "https://via.placeholder.com/600x200?text=Mercado+Español",
-    "products": [
-      {
-        "name": "Zapatos de cuero",
-        "price": 15,
-        "image": "https://via.placeholder.com/150"
-      },
-      {
-        "name": "Jamón ibérico",
-        "price": 8,
-        "image": "https://via.placeholder.com/150"
+  "banner": "https://via.placeholder.com/600x200?text=Mercado+Espana",
+  "products": [
+    {
+      "name": "Zapatos de cuero",
+      "price": 15,
+      "image": "https://via.placeholder.com/150",
+      "contact": {
+        "whatsapp": "https://wa.me/34666111222",
+        "telegram": "https://t.me/spanish_shoes"
       }
-    ]
-  }
-  
+    },
+    {
+      "name": "Jamón ibérico",
+      "price": 8,
+      "image": "https://via.placeholder.com/150",
+      "contact": {
+        "whatsapp": "https://wa.me/34666222333",
+        "telegram": "https://t.me/jamon_es"
+      }
+    }
+  ]
+}

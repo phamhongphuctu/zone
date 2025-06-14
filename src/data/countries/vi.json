@@ -1,16 +1,23 @@
 {
-    "banner": "https://via.placeholder.com/600x200?text=Chợ+Việt+Nam",
-    "products": [
-      {
-        "name": "Áo thun",
-        "price": 2,
-        "image": "https://via.placeholder.com/150"
-      },
-      {
-        "name": "Điện thoại",
-        "price": 35,
-        "image": "https://via.placeholder.com/150"
+  "banner": "https://via.placeholder.com/600x200?text=Cho+Viet+Nam",
+  "products": [
+    {
+      "name": "Áo thun",
+      "price": 2,
+      "image": "https://via.placeholder.com/150",
+      "contact": {
+        "zalo": "https://zalo.me/0909123456",
+        "phone": "+84 909123456"
       }
-    ]
-  }
-  
+    },
+    {
+      "name": "Điện thoại",
+      "price": 35,
+      "image": "https://via.placeholder.com/150",
+      "contact": {
+        "zalo": "https://zalo.me/0912987654",
+        "phone": "+84 912987654"
+      }
+    }
+  ]
+}
