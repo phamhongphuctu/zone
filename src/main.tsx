@@ -9,7 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserProvider } from "./context/UserContext";
 
 
-import "./types/global";
+
 
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
