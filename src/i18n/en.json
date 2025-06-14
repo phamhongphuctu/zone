@@ -15,6 +15,8 @@
 "product_name": "Product Name",
 "price": "Price",
 "description": "Description",
-"submit": "Submit"
+"submit": "Submit",
+"create_sell_post": "Create product listing"
+
 
 }

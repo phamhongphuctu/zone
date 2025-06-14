@@ -18,8 +18,9 @@ export default function Profile() {
 
       {/* 👇 Nút tạo bài đăng */}
       <button onClick={() => navigate("/sell")} className="zone-btn">
-        Tạo bài đăng bán hàng
-      </button>
+  {t("create_sell_post")}
+</button>
+
 
       <BottomNav />
     </div>

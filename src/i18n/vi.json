@@ -15,7 +15,9 @@
 "product_name": "Tên sản phẩm",
 "price": "Giá",
 "description": "Mô tả",
-"submit": "Gửi"
+"submit": "Gửi",
+"create_sell_post": "Tạo bài đăng bán hàng"
+
 
   }
   
