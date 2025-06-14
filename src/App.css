@@ -130,3 +130,21 @@ body {
 .zone-search-icon:hover {
   background-color: #e2e2e2;
 }
+.zone-category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 5px;
+  max-width: 100px; /* 👈 Chỉnh kích thước nhỏ lại */
+  margin: 10px 0;
+}
+
+.zone-category-item {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: left;           /* 👈 Căn trái chữ */
+  border: 1px solid #ddd;
+}

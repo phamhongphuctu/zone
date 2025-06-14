@@ -19,5 +19,21 @@
         "telegram": "https://t.me/jamon_es"
       }
     }
+  ],
+  "categories": [
+    "Electrónica",
+    "Negocios y Ciencia",
+    "Herramientas y mejoras del hogar",
+    "Electrodomésticos",
+    "Oficina y Escuela",
+    "Salud y Hogar",
+    "Mascotas",
+    "Teléfonos y Accesorios",
+    "Hogar inteligente",
+    "Instrumentos musicales",
+    "Artículos de playa",
+    "Muebles",
+    "Libros y Medios",
+    "Comida y Supermercado"
   ]
 }

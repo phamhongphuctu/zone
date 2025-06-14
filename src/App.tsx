@@ -192,6 +192,16 @@ function App() {
 
       <section className="zone-products">
   <h2>{t("suggestion_today")}</h2>
+  {countryData?.categories && (
+  <div className="zone-category-list">
+    {countryData.categories.map((cat: string, idx: number) => (
+      <div key={idx} className="zone-category-item">
+        {cat}
+      </div>
+    ))}
+  </div>
+)}
+
   <div className="zone-product-list">
     {filteredProducts?.map((product: any, idx: number) => (
       <div key={idx} className="zone-product-card">

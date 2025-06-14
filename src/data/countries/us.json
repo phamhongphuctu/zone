@@ -19,5 +19,21 @@
         "email": "iphone@seller.com"
       }
     }
+  ],
+  "categories": [
+    "Electronics",
+    "Business, Industry & Science",
+    "Tools & Home Improvement",
+    "Appliances",
+    "Office & School Supplies",
+    "Health & Household",
+    "Pet Supplies",
+    "Cell Phones & Accessories",
+    "Smart Home",
+    "Musical Instruments",
+    "Beachwear",
+    "Furniture",
+    "Books & Media",
+    "Food & Grocery"
   ]
 }
