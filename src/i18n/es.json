@@ -17,6 +17,8 @@
   "price": "Precio",
   "description": "Descripción",
   "submit": "Enviar",
-  "create_sell_post": "Crear publicación de venta"
+  "create_sell_post": "Crear publicación de venta",
+  "exit": "Salir"
+
   
 }
