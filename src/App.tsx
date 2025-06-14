@@ -102,10 +102,9 @@ function App() {
     );
   };
   const [searchTerm, setSearchTerm] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
+  
 
-  const filteredProducts = countryData?.products?.filter((product: { name: string }) =>
-  product.name.toLowerCase().includes(searchTerm.toLowerCase())
-);
 
   return (
     <div className="app-container">
@@ -151,12 +150,30 @@ function App() {
         className="zone-search-input"
       />
       <button
-        type="button"
-        onClick={() => console.log("Tìm: ", searchTerm)}
-        className="zone-search-icon"
-      >
-        🔍
-      </button>
+  type="button"
+  onClick={() => {
+    if (!countryData?.products) return;
+
+    if (!searchTerm.trim()) {
+      alert("Vui lòng nhập từ khóa tìm kiếm");
+      return;
+    }
+
+    const results = countryData.products.filter((product: any) =>
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    if (results.length === 0) {
+      alert("Không tìm thấy sản phẩm phù hợp");
+    }
+
+    setFilteredProducts(results);
+  }}
+  className="zone-search-icon"
+>
+  🔍
+</button>
+
     </div>
   )}
 
