@@ -7,7 +7,7 @@ import "./i18n";
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserProvider } from "./context/UserContext";
-
+import Sell from "./pages/Sell";
 
 
 
@@ -21,6 +21,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <Route path="/:countryCode" element={<App />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/sell" element={<Sell />} />
         </Routes>
       </UserProvider>
     </BrowserRouter>

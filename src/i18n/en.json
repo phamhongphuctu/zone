@@ -10,5 +10,11 @@
   "your_name": "Your name",
   "wallet_address": "Wallet address",
   "language": "Language",
-  "pi_won": "Pi won"
+  "pi_won": "Pi won",
+  "sell_product": "Sell Product",
+"product_name": "Product Name",
+"price": "Price",
+"description": "Description",
+"submit": "Submit"
+
 }

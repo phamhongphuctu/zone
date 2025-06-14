@@ -1,9 +1,10 @@
-// src/pages/Profile.tsx
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom"; // 👈 thêm dòng này
 import BottomNav from "../components/BottomNav";
 
 export default function Profile() {
   const { t } = useTranslation();
+  const navigate = useNavigate(); // 👈 khởi tạo điều hướng
 
   return (
     <div className="zone-profile-page">
@@ -14,6 +15,11 @@ export default function Profile() {
         <p>{t("language")}: English</p>
         <p>{t("pi_won")}: 3.14 Pi</p>
       </div>
+
+      {/* 👇 Nút tạo bài đăng */}
+      <button onClick={() => navigate("/sell")} className="zone-btn">
+        Tạo bài đăng bán hàng
+      </button>
 
       <BottomNav />
     </div>

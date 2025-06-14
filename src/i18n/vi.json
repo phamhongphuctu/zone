@@ -10,6 +10,12 @@
     "your_name": "Tên của bạn",
     "wallet_address": "Địa chỉ ví",
     "language": "Ngôn ngữ",
-    "pi_won": "Pi đã trúng"
+    "pi_won": "Pi đã trúng",
+    "sell_product": "Đăng sản phẩm",
+"product_name": "Tên sản phẩm",
+"price": "Giá",
+"description": "Mô tả",
+"submit": "Gửi"
+
   }
   

@@ -13,7 +13,13 @@
       "your_name": "Tu nombre",
       "wallet_address": "Dirección de billetera",
       "language": "Idioma",
-      "pi_won": "Pi ganado"
+      "pi_won": "Pi ganado",
+      "sell_product": "Publicar producto",
+"product_name": "Nombre del producto",
+"price": "Precio",
+"description": "Descripción",
+"submit": "Enviar"
+
     }
     
   
