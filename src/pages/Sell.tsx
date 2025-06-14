@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
+const { t } = useTranslation();
 export default function Sell() {
   const { t } = useTranslation();
   const [country, setCountry] = useState("vn");
@@ -53,9 +53,9 @@ export default function Sell() {
       </form>
 
       <div style={{ marginTop: "1rem", textAlign: "center" }}>
-        <button className="zone-btn" onClick={handleExit}>
-          ⬅️ Thoát ra
-        </button>
+      <button className="zone-btn" onClick={handleExit}>
+  ⬅️ {t("exit")}
+</button>
       </div>
     </div>
   );
