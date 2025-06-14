@@ -1,7 +1,7 @@
 // src/pages/Categories.tsx
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import "./Categories.css";
+
 
 const categories = [
   { id: "electronics", icon: "📱", nameKey: "electronics" },
