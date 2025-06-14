@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 
+
 import "./App.css";
 
 // Import dữ liệu quốc gia
@@ -69,6 +70,7 @@ function App() {
   }, [countryCode]);
 
   const renderContactButtons = (contact: any) => {
+    
     return (
       <div style={{ marginTop: "0.5rem" }}>
         {contact?.zalo && (
@@ -99,6 +101,11 @@ function App() {
       </div>
     );
   };
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredProducts = countryData?.products?.filter((product: { name: string }) =>
+  product.name.toLowerCase().includes(searchTerm.toLowerCase())
+);
 
   return (
     <div className="app-container">
@@ -132,9 +139,20 @@ function App() {
             </option>
           ))}
         </select>
-      )}
+)}
 
-      <section className="zone-banner">
+{["vi", "us", "es"].includes(countryCode || "") && (
+  <input
+    type="text"
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+    placeholder={t("search_placeholder")}
+    className="zone-search-input"
+  />
+)}
+
+<section className="zone-banner">
+
         <img
           src={
             countryData?.banner ||
@@ -145,21 +163,22 @@ function App() {
       </section>
 
       <section className="zone-products">
-        <h2>{t("suggestion_today")}</h2>
-        <div className="zone-product-list">
-          {countryData?.products?.map((product: any, idx: number) => (
-            <div key={idx} className="zone-product-card">
-              <img src={product.image} alt={product.name} />
-              <p>{product.name}</p>
-              <p>
-                {t("price")}: {product.price} Pi
-              </p>
-              <button>{t("buy_now")}</button>
-              {renderContactButtons(product.contact)}
-            </div>
-          ))}
-        </div>
-      </section>
+  <h2>{t("suggestion_today")}</h2>
+  <div className="zone-product-list">
+    {filteredProducts?.map((product: any, idx: number) => (
+      <div key={idx} className="zone-product-card">
+        <img src={product.image} alt={product.name} />
+        <p>{product.name}</p>
+        <p>
+          {t("price")}: {product.price} Pi
+        </p>
+        <button>{t("buy_now")}</button>
+        {renderContactButtons(product.contact)}
+      </div>
+    ))}
+  </div>
+</section>
+
     </div>
   );
 }
