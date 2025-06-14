@@ -45,15 +45,26 @@ function App() {
 
   // 👉 Load lại ngôn ngữ khi mở lại app
   useEffect(() => {
-    const fromRoute = countryCode || localStorage.getItem("zone_country");
-    if (fromRoute) {
-      const found = piCountries.find((c) => c.code === fromRoute);
+    const savedLang = localStorage.getItem("zone_language");
+  
+    if (!savedLang) {
+      const browserLang = navigator.language.slice(0, 2); // "vi", "en"...
+      i18n.changeLanguage(browserLang); // 👉 chỉ đổi ngôn ngữ
+      localStorage.setItem("zone_language", browserLang);
+    } else {
+      i18n.changeLanguage(savedLang);
+    }
+  
+    // Nếu có quốc gia trong URL → lấy label ra
+    if (countryCode) {
+      const found = piCountries.find((c) => c.code === countryCode);
       if (found) {
         setCountry(found.label);
-        i18n.changeLanguage(fromRoute);
       }
     }
   }, [countryCode]);
+  
+  
 
   
 
@@ -69,14 +80,21 @@ function App() {
       </header>
 
       {showSelector && (
-        <div className="zone-country-list">
-          {piCountries.map((c) => (
-            <button key={c.code} onClick={() => handleSelectCountry(c.code, c.label)}>
-              {c.label}
-            </button>
-          ))}
-        </div>
-      )}
+  <select
+    className="zone-country-select"
+    onChange={(e) => {
+      const selected = piCountries.find((c) => c.code === e.target.value);
+      if (selected) handleSelectCountry(selected.code, selected.label);
+    }}
+    defaultValue=""
+  >
+    <option value="" disabled>🌍 Chọn quốc gia...</option>
+    {piCountries.map((c) => (
+      <option key={c.code} value={c.code}>{c.label}</option>
+    ))}
+  </select>
+)}
+
 
       <section className="zone-banner">
         <img src="https://via.placeholder.com/600x200?text=Zone+Banner" alt="Banner" />

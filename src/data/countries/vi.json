@@ -1,0 +1,16 @@
+{
+    "banner": "https://via.placeholder.com/600x200?text=Chợ+Việt+Nam",
+    "products": [
+      {
+        "name": "Áo thun",
+        "price": 2,
+        "image": "https://via.placeholder.com/150"
+      },
+      {
+        "name": "Điện thoại",
+        "price": 35,
+        "image": "https://via.placeholder.com/150"
+      }
+    ]
+  }
+  

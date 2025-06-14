@@ -1,0 +1,16 @@
+{
+    "banner": "https://via.placeholder.com/600x200?text=US+Marketplace",
+    "products": [
+      {
+        "name": "T-shirt",
+        "price": 3,
+        "image": "https://via.placeholder.com/150"
+      },
+      {
+        "name": "iPhone",
+        "price": 100,
+        "image": "https://via.placeholder.com/150"
+      }
+    ]
+  }
+  

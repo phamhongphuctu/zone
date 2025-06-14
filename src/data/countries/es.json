@@ -1,0 +1,16 @@
+{
+    "banner": "https://via.placeholder.com/600x200?text=Mercado+Español",
+    "products": [
+      {
+        "name": "Zapatos de cuero",
+        "price": 15,
+        "image": "https://via.placeholder.com/150"
+      },
+      {
+        "name": "Jamón ibérico",
+        "price": 8,
+        "image": "https://via.placeholder.com/150"
+      }
+    ]
+  }
+  
