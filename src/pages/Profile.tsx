@@ -1,4 +1,6 @@
+// src/pages/Profile.tsx
 import { useTranslation } from "react-i18next";
+import BottomNav from "../components/BottomNav";
 
 export default function Profile() {
   const { t } = useTranslation();
@@ -6,12 +8,14 @@ export default function Profile() {
   return (
     <div className="zone-profile-page">
       <h2>{t("profile")}</h2>
-      <ul>
-        <li>{t("your_name")}: <strong>Pham Hong Phuc Tu</strong></li>
-        <li>{t("wallet_address")}: G***1234</li>
-        <li>{t("language")}: 🇻🇳 Tiếng Việt</li>
-        <li>{t("pi_won")}: 0.00 Pi</li>
-      </ul>
+      <div>
+        <p>{t("your_name")}: John Doe</p>
+        <p>{t("wallet_address")}: GABC123456789</p>
+        <p>{t("language")}: English</p>
+        <p>{t("pi_won")}: 3.14 Pi</p>
+      </div>
+
+      <BottomNav />
     </div>
   );
 }

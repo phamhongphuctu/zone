@@ -10,11 +10,11 @@ export default function BottomNav() {
         <Home size={20} />
         <span>Home</span>
       </div>
-      <div className="zone-nav-item" onClick={() => navigate("/categories")}> {/* 👈 Sửa thêm navigate */}
+      <div className="zone-nav-item" onClick={() => navigate("/categories")}>
         <ShoppingBag size={20} />
         <span>Categories</span>
       </div>
-      <div className="zone-nav-item">
+      <div className="zone-nav-item" onClick={() => navigate("/profile")}>
         <User size={20} />
         <span>You</span>
       </div>
@@ -22,11 +22,6 @@ export default function BottomNav() {
         <ShoppingCart size={20} />
         <span>Cart</span>
       </div>
-      <div className="zone-nav-item" onClick={() => navigate("/profile")}>
-  <User size={20} />
-  <span>You</span>
-</div>
-
     </nav>
   );
 }
