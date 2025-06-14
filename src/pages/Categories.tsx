@@ -1,7 +1,7 @@
 // src/pages/Categories.tsx
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-
+import BottomNav from "../components/BottomNav"; // ✅ THÊM DÒNG NÀY
 
 const categories = [
   { id: "electronics", icon: "📱", nameKey: "electronics" },
@@ -25,6 +25,9 @@ export default function Categories() {
           </Link>
         ))}
       </div>
+
+      {/* ✅ THÊM 4 NÚT DƯỚI CÙNG */}
+      <BottomNav />
     </div>
   );
 }

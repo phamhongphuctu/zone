@@ -5,8 +5,11 @@
     "select_country": "Chọn quốc gia",
     "country": "Quốc gia",
     "choose_country": "Chọn quốc gia...",
-    "search_placeholder": "Tìm kiếm sản phẩm..."
-
-
+    "search_placeholder": "Tìm kiếm sản phẩm...",
+         "profile": "Trang cá nhân",
+    "your_name": "Tên của bạn",
+    "wallet_address": "Địa chỉ ví",
+    "language": "Ngôn ngữ",
+    "pi_won": "Pi đã trúng"
   }
   

@@ -1,12 +1,14 @@
 {
-    "welcome": "Welcome to Zone",
-    "suggestion_today": "Today's Suggestions",
-    "buy_now": "Buy now",
-    "select_country": "Select country",
-    "country": "Country",
-    "choose_country": "Choose country...",
-    "search_placeholder": "Search products..."
-
-
-  }
-  
+  "welcome": "Welcome to Zone",
+  "suggestion_today": "Today's Suggestions",
+  "buy_now": "Buy now",
+  "select_country": "Select country",
+  "country": "Country",
+  "choose_country": "Choose country...",
+  "search_placeholder": "Search products...",
+  "profile": "Profile",
+  "your_name": "Your name",
+  "wallet_address": "Wallet address",
+  "language": "Language",
+  "pi_won": "Pi won"
+}

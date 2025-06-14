@@ -22,6 +22,11 @@ export default function BottomNav() {
         <ShoppingCart size={20} />
         <span>Cart</span>
       </div>
+      <div className="zone-nav-item" onClick={() => navigate("/profile")}>
+  <User size={20} />
+  <span>You</span>
+</div>
+
     </nav>
   );
 }
