@@ -45,7 +45,8 @@ function App() {
   const { countryCode } = useParams();
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
-  
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+
   const handleSelectCountry = (code: string, label: string) => {
     setCountry(label);
     setShowSelector(false);
@@ -156,12 +157,50 @@ function App() {
 {["vi", "us", "es"].includes(countryCode || "") && (
     <div className="zone-search-wrapper">
       <input
-        type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        placeholder={t("search_placeholder")}
-        className="zone-search-input"
-      />
+  type="text"
+  value={searchTerm}
+  onChange={(e) => {
+    const keyword = e.target.value;
+    setSearchTerm(keyword);
+
+    // Gợi ý tìm kiếm theo tên sản phẩm
+    if (keyword.trim()) {
+      const storedData = localStorage.getItem("productsByCountry");
+      const parsed = storedData ? JSON.parse(storedData) : {};
+      const products = parsed[countryCode || ""] || [];
+
+      const matched = products
+        .map((p: any) => p.name)
+        .filter((name: string) =>
+          name.toLowerCase().includes(keyword.toLowerCase())
+        )
+        .slice(0, 10);
+
+        setSuggestions([...new Set(matched)] as string[]);
+
+    } else {
+      setSuggestions([]);
+    }
+  }}
+  placeholder={t("search_placeholder")}
+  className="zone-search-input"
+/>
+{suggestions.length > 0 && (
+  <ul className="zone-suggestions">
+    {suggestions.map((sug, idx) => (
+      <li
+        key={idx}
+        onClick={() => {
+          setSearchTerm(sug);
+          setSuggestions([]);
+        }}
+      >
+        🔍 {sug}
+      </li>
+    ))}
+  </ul>
+)}
+
       <button
   type="button"
   onClick={() => {
