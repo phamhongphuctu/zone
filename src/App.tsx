@@ -64,14 +64,23 @@ function App() {
       i18n.changeLanguage(savedLang);
     }
   
-    if (countryCode) {
-      const found = piCountries.find((c) => c.code === countryCode);
-      if (found) {
-        setCountry(found.label);
-        setCountryData(countryMap[countryCode] || null);
+    
+      if (countryCode) {
+        const storedData = localStorage.getItem("productsByCountry");
+        const parsedData = storedData ? JSON.parse(storedData) : {};
+        const products = parsedData[countryCode] || [];
+    
+        if (searchTerm.trim()) {
+          const results = products.filter((product: any) =>
+            product.name.toLowerCase().includes(searchTerm.toLowerCase())
+          );
+          setFilteredProducts(results);
+        } else {
+          setFilteredProducts(products);
+        }
       }
-    }
-  }, [countryCode]);
+    }, [countryCode, searchTerm]);
+    
   
 
   const renderContactButtons = (contact: any) => {
@@ -204,7 +213,7 @@ function App() {
       </div>
     ))}
   </div>
-  
+
 )}
 
   <div className="zone-product-list">
