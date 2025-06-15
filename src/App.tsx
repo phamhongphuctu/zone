@@ -84,8 +84,11 @@ function App() {
       )}
 
 <Routes>
-  <Route path="/" element={<Categories />} />
+  <Route path="/:countryCode" element={<Home />} />
+  <Route path="/product/:id" element={<ProductDetail />} />
+  <Route path="/categories" element={<Categories />} />
 </Routes>
+
 
 
       <BottomNav />
