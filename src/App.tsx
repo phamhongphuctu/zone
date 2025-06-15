@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import BottomNav from "./components/BottomNav";
 import Categories from "./pages/Categories";
-
+import { getProductsByCountry } from "./lib/api";
 
 import "./App.css";
 
@@ -66,22 +66,23 @@ function App() {
     }
   
     
+    const fetchProducts = async () => {
       if (countryCode) {
-        const storedData = localStorage.getItem("productsByCountry");
-        const parsedData = storedData ? JSON.parse(storedData) : {};
-        const products = parsedData[countryCode] || [];
-    
+        const allProducts = await getProductsByCountry(countryCode);
+  
         if (searchTerm.trim()) {
-          const results = products.filter((product: any) =>
+          const results = allProducts.filter((product: any) =>
             product.name.toLowerCase().includes(searchTerm.toLowerCase())
           );
           setFilteredProducts(results);
         } else {
-          setFilteredProducts(products);
+          setFilteredProducts(allProducts);
         }
       }
-    }, [countryCode, searchTerm]);
-    
+    };
+  
+    fetchProducts();
+  }, [countryCode, searchTerm]);
   
 
   const renderContactButtons = (contact: any) => {
