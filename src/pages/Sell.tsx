@@ -57,7 +57,13 @@ export default function Sell() {
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: "1rem" }}>
           <label>{t("product_name")}</label>
-          <input type="text" className="zone-input" placeholder="Ví dụ: Áo thun..." />
+          <input
+  type="text"
+  className="zone-input"
+  value={productName}
+  onChange={(e) => setProductName(e.target.value)}
+  placeholder="Ví dụ: Áo thun..."
+/>
         </div>
 
         <div style={{ marginBottom: "1rem" }}>
@@ -74,7 +80,12 @@ export default function Sell() {
 
         <div style={{ marginBottom: "1rem" }}>
           <label>{t("description")}</label>
-          <textarea className="zone-input" placeholder="Chi tiết sản phẩm..." />
+          <textarea
+  className="zone-input"
+  value={description}
+  onChange={(e) => setDescription(e.target.value)}
+  placeholder="Chi tiết sản phẩm..."
+/>
         </div>
 
         {/* ✅ Ảnh sản phẩm */}
