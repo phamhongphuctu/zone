@@ -83,13 +83,10 @@ function App() {
         </select>
       )}
 
-<Routes>
-  <Route path="/:countryCode" element={<Home />} />
-  <Route path="/product/:id" element={<ProductDetail />} />
-  <Route path="/categories" element={<Categories />} />
-</Routes>
-
-
+      <Routes>
+        <Route path="/:countryCode" element={<Home />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+      </Routes>
 
       <BottomNav />
     </div>
