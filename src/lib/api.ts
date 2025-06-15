@@ -11,21 +11,17 @@ export const postProductToSupabase = async (product: any) => {
 
 // ✅ Hàm lấy sản phẩm theo quốc gia
 export const getProductsByCountry = async (country: string) => {
-  const { data, error } = await supabase
-    .from("products")
-    .select("*")
-    .eq("country", country.toLowerCase()) // ép về chữ thường
-    .order("id", { ascending: false });   // sắp theo id nếu chưa có created_at
-
-  if (error) {
-    console.error("❌ Lỗi lấy sản phẩm:", error.message);
-    return [];
-  }
-
-  if (!data || data.length === 0) {
-    console.log("✅ Không có sản phẩm cho quốc gia:", country);
-    return [];
-  }
-
-  return data;
-};
+    const { data, error } = await supabase
+      .from("products")
+      .select("*")
+      .ilike("country", country) // 👈 dùng ilike thay eq để không phân biệt hoa thường
+      .order("created_at", { ascending: false });
+  
+    if (error) {
+      console.error("Lỗi lấy sản phẩm:", error);
+      return [];
+    }
+  
+    return data;
+  };
+  
