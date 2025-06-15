@@ -17,13 +17,10 @@ export default function Sell() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
   
-    if (!productName || !price || !country || !image) {
-
+    if (!productName || !price || !country || !preview) {
       alert("Vui lòng nhập đầy đủ thông tin");
       return;
     }
-    
-    
   
     const newProduct = {
       name: productName,
@@ -32,7 +29,7 @@ export default function Sell() {
       image: preview,
       country,
       contact: {
-        zalo: "https://zalo.me/123456789", // Anh có thể sửa sau
+        zalo: "https://zalo.me/123456789",
         telegram: "",
         phone: "",
       },
