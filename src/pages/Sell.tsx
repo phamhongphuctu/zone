@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { postProductToSupabase } from "../lib/api";
+import { uploadImage } from "../lib/uploadImage";
 
 export default function Sell() {
   const { t } = useTranslation();
@@ -96,13 +97,10 @@ export default function Sell() {
               const file = e.target.files?.[0];
               if (file) {
                 setImage(file);
-                const reader = new FileReader();
-                reader.onloadend = () => {
-                  setPreview(reader.result as string);
-                };
-                reader.readAsDataURL(file);
+                uploadImage(file).then((url) => setPreview(url));
               }
             }}
+            
           />
           {preview && (
             <div style={{ marginTop: "0.5rem" }}>
