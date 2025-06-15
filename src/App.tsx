@@ -59,71 +59,7 @@ function App() {
     navigate(`/${code}`);
   };
 
-  useEffect(() => {
-    const savedLang = localStorage.getItem("zone_language");
-    if (!savedLang) {
-      const browserLang = navigator.language.slice(0, 2);
-      i18n.changeLanguage(browserLang);
-      localStorage.setItem("zone_language", browserLang);
-    } else {
-      i18n.changeLanguage(savedLang);
-    }
   
-    
-    const fetchProducts = async () => {
-      if (countryCode) {
-        const allProducts = await getProductsByCountry(countryCode);
-  
-        if (searchTerm.trim()) {
-          const results = allProducts.filter((product: any) =>
-            product.name.toLowerCase().includes(searchTerm.toLowerCase())
-          );
-          setFilteredProducts(results);
-        } else {
-          setFilteredProducts(allProducts);
-        }
-      }
-    };
-  
-    fetchProducts();
-  }, [countryCode, searchTerm]);
-  
-
-  const renderContactButtons = (contact: any) => {
-    
-    return (
-      <div style={{ marginTop: "0.5rem" }}>
-        {contact?.zalo && (
-          <a href={contact.zalo} target="_blank" rel="noopener noreferrer">
-            <button>💬 Zalo</button>
-          </a>
-        )}
-        {contact?.telegram && (
-          <a href={contact.telegram} target="_blank" rel="noopener noreferrer">
-            <button>📲 Telegram</button>
-          </a>
-        )}
-        {contact?.whatsapp && (
-          <a href={contact.whatsapp} target="_blank" rel="noopener noreferrer">
-            <button>📱 WhatsApp</button>
-          </a>
-        )}
-        {contact?.phone && (
-          <a href={`tel:${contact.phone}`}>
-            <button>📞 Gọi</button>
-          </a>
-        )}
-        {contact?.email && (
-          <a href={`mailto:${contact.email}`}>
-            <button>✉️ Email</button>
-          </a>
-        )}
-      </div>
-    );
-  };
-
-  
-
 
   return (
     <div className="app-container">
@@ -266,7 +202,7 @@ function App() {
           {t("price")}: {product.price} Pi
         </p>
         <button>{t("buy_now")}</button>
-        {renderContactButtons(product.contact)}
+        
       </div>
     ))}
   </div>
