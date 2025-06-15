@@ -18,7 +18,8 @@
   "description": "Descripción",
   "submit": "Enviar",
   "create_sell_post": "Crear publicación de venta",
-  "exit": "Salir"
+  "exit": "Salir",
+  "product_image": "Imagen del producto"
 
   
 }
