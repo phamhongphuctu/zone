@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 export default function Sell() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [price, setPrice] = useState("");
 
   const [country, setCountry] = useState("vn");
   const [image, setImage] = useState<File | null>(null);
@@ -52,7 +53,14 @@ export default function Sell() {
 
         <div style={{ marginBottom: "1rem" }}>
           <label>{t("price")}</label>
-          <input type="number" className="zone-input" placeholder="0.1 Pi" />
+          <input
+  type="number"
+  step="0.01"
+  min="0"
+  value={price}
+  onChange={(e) => setPrice(e.target.value)}
+/>
+
         </div>
 
         <div style={{ marginBottom: "1rem" }}>
