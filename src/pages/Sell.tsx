@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { postProductToSupabase } from "../lib/api";
 
 export default function Sell() {
   const { t } = useTranslation();
@@ -10,30 +11,38 @@ export default function Sell() {
   const [country, setCountry] = useState("vn");
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
+  const [productName, setProductName] = useState("");
+  const [description, setDescription] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
   
-    const product = {
-      country,
+    if (!productName || !price || !country || !image) {
+      alert("Vui lòng nhập đầy đủ thông tin");
+      return;
+    }
+  
+    const newProduct = {
+      name: productName,
+      price: parseFloat(price),
+      description,
       image: preview,
-      createdAt: new Date().toISOString()
+      country,
+      contact: {
+        zalo: "https://zalo.me/123456789", // Anh có thể sửa sau
+        telegram: "",
+        phone: "",
+      },
     };
   
-    // Lấy danh sách hiện tại từ localStorage
-    const storedData = localStorage.getItem("productsByCountry");
-    const parsedData = storedData ? JSON.parse(storedData) : {};
-  
-    // Thêm sản phẩm vào quốc gia tương ứng
-    const updated = {
-      ...parsedData,
-      [country]: [...(parsedData[country] || []), product]
-    };
-  
-    localStorage.setItem("productsByCountry", JSON.stringify(updated));
-  
-    alert(`Sản phẩm đã được gửi đến quốc gia: ${country.toUpperCase()}`);
-    navigate(`/${country}`);
+    try {
+      await postProductToSupabase(newProduct);
+      alert("✅ Sản phẩm đã được gửi lên Supabase!");
+      navigate(`/${country}`);
+    } catch (err) {
+      alert("❌ Gửi thất bại!");
+      console.error(err);
+    }
   };
   
   const handleExit = () => {
