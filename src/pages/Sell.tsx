@@ -6,8 +6,8 @@ import { postProductToSupabase } from "../lib/api";
 export default function Sell() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [price, setPrice] = useState("");
 
+  const [price, setPrice] = useState("");
   const [country, setCountry] = useState("vn");
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
@@ -16,12 +16,12 @@ export default function Sell() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
+
     if (!productName || !price || !country || !preview) {
       alert("Vui lòng nhập đầy đủ thông tin");
       return;
     }
-  
+
     const newProduct = {
       name: productName,
       price: parseFloat(price),
@@ -34,61 +34,59 @@ export default function Sell() {
         phone: "",
       },
     };
-  
+
     try {
       await postProductToSupabase(newProduct);
       alert("✅ Sản phẩm đã được gửi lên Supabase!");
-      navigate(`/${country}`);
+
+      // ✅ CHỈNH ĐIỂM QUAN TRỌNG: chuyển về đúng route quốc gia
+      window.location.href = `/${country}`;
     } catch (err) {
       alert("❌ Gửi thất bại!");
       console.error(err);
     }
   };
-  
+
   const handleExit = () => {
-    navigate(`/${country}`);
+    window.location.href = `/${country}`;
   };
-  
 
   return (
     <div className="zone-sell-page" style={{ padding: "1rem" }}>
       <h2>{t("sell_product")}</h2>
-
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: "1rem" }}>
           <label>{t("product_name")}</label>
           <input
-  type="text"
-  className="zone-input"
-  value={productName}
-  onChange={(e) => setProductName(e.target.value)}
-  placeholder="Ví dụ: Áo thun..."
-/>
+            type="text"
+            className="zone-input"
+            value={productName}
+            onChange={(e) => setProductName(e.target.value)}
+            placeholder="Ví dụ: Áo thun..."
+          />
         </div>
 
         <div style={{ marginBottom: "1rem" }}>
           <label>{t("price")}</label>
           <input
-  type="number"
-  step="0.01"
-  min="0"
-  value={price}
-  onChange={(e) => setPrice(e.target.value)}
-/>
-
+            type="number"
+            step="0.01"
+            min="0"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
         </div>
 
         <div style={{ marginBottom: "1rem" }}>
           <label>{t("description")}</label>
           <textarea
-  className="zone-input"
-  value={description}
-  onChange={(e) => setDescription(e.target.value)}
-  placeholder="Chi tiết sản phẩm..."
-/>
+            className="zone-input"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Chi tiết sản phẩm..."
+          />
         </div>
 
-        {/* ✅ Ảnh sản phẩm */}
         <div style={{ marginBottom: "1rem" }}>
           <label>{t("product_image")}</label>
           <input
