@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { postProductToSupabase } from "../lib/api";
 import { uploadImage } from "../lib/uploadImage";
@@ -129,6 +129,18 @@ export default function Sell() {
         <button type="submit" className="zone-btn">
           {t("submit")}
         </button>
+
+        <Link
+          to="/"
+          style={{
+            display: "inline-block",
+            marginTop: "1rem",
+            color: "blue",
+            textDecoration: "underline",
+          }}
+        >
+          ← Quay lại trang chính
+        </Link>
       </form>
     </div>
   );
