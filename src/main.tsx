@@ -16,13 +16,14 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/:countryCode" element={<App />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/sell" element={<Sell />} />
-        </Routes>
+      <Routes>
+  <Route path="/" element={<App />} />
+  <Route path="/:countryCode/*" element={<App />} />
+  <Route path="/categories" element={<Categories />} />
+  <Route path="/profile" element={<Profile />} />
+  <Route path="/sell" element={<Sell />} />
+</Routes>
+
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
