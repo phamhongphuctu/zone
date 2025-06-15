@@ -17,10 +17,17 @@ export default function Sell() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
   
-    if (!productName || !price || !country || !preview) {
+    if (
+      !productName ||
+      !price.trim() ||
+      isNaN(Number(price)) ||
+      !country ||
+      !preview
+    ) {
       alert("Vui lòng nhập đầy đủ thông tin");
       return;
     }
+    
     
   
     const newProduct = {
