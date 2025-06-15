@@ -17,13 +17,8 @@ export default function Sell() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
   
-    if (
-      !productName ||
-      !price.trim() ||
-      isNaN(Number(price)) ||
-      !country ||
-      !preview
-    ) {
+    if (!productName || !price || !country || !image) {
+
       alert("Vui lòng nhập đầy đủ thông tin");
       return;
     }
