@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Routes, Route } from "react-router-dom";
+
 import BottomNav from "./components/BottomNav";
 import Categories from "./pages/Categories";
 import { getProductsByCountry } from "./lib/api";
-
+import ProductDetail from "./pages/ProductDetail";
 import "./App.css";
+import Home from "./pages/Home";
+
+
 
 // Import dữ liệu quốc gia
 import vi from "./data/countries/vi.json";
@@ -126,14 +130,13 @@ function App() {
       <header className="zone-header">
         <h1>🛒 Zone Marketplace</h1>
         <button
-  onClick={() => setShowSelector(!showSelector)}
-  className="zone-country-btn"
->
-  {country === "🌍 Chọn quốc gia" ? "🌍 Choose country" : country}
-</button>
-
+          onClick={() => setShowSelector(!showSelector)}
+          className="zone-country-btn"
+        >
+          {country === "🌍 Chọn quốc gia" ? "🌍 Choose country" : country}
+        </button>
       </header>
-
+  
       {showSelector && (
         <select
           className="zone-country-select"
@@ -144,17 +147,26 @@ function App() {
           defaultValue=""
         >
           <option value="" disabled>
-  🌍 {t("choose_country")}
-</option>
-
+            🌍 {t("choose_country")}
+          </option>
           {piCountries.map((c) => (
             <option key={c.code} value={c.code}>
               {c.label}
             </option>
           ))}
         </select>
-)}
-
+      )}
+  
+      {/* 👇 Phần định tuyến */}
+      <Routes>
+        <Route path="/:countryCode" element={<Home />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+      </Routes>
+  
+      <BottomNav />
+    </div>
+  );
+  
 {["vi", "us", "es"].includes(countryCode || "") && (
     <div className="zone-search-wrapper">
       <input
@@ -218,7 +230,8 @@ function App() {
     </div>
   )}
 
-
+  return (
+    <>
 
 <section className="zone-banner">
 
@@ -260,7 +273,8 @@ function App() {
 </section>
 
 <BottomNav />
-    </div>
+</> 
+
   );
 }
 
