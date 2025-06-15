@@ -126,9 +126,21 @@ export default function Sell() {
           </select>
         </div>
 
-        <button type="submit" className="zone-btn">
-          {t("submit")}
-        </button>
+        <button
+  type="button"
+  onClick={() => navigate(`/${country}`)}
+  style={{
+    marginTop: "1rem",
+    padding: "8px 16px",
+    borderRadius: "6px",
+    border: "1px solid #ccc",
+    backgroundColor: "#f0f0f0",
+    cursor: "pointer",
+  }}
+>
+  🔙 {t("back_home")}
+</button>
+
 
         <Link
           to="/"
