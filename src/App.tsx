@@ -201,30 +201,18 @@ function App() {
   </ul>
 )}
 
-      <button
+<button
   type="button"
-  onClick={() => {
-    if (!countryData?.products) return;
-
-    if (!searchTerm.trim()) {
-      alert("Vui lòng nhập từ khóa tìm kiếm");
-      return;
-    }
-
-    const results = countryData.products.filter((product: any) =>
-      product.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
-    if (results.length === 0) {
-      alert("Không tìm thấy sản phẩm phù hợp");
-    }
-
-    setFilteredProducts(results);
-  }}
   className="zone-search-icon"
+  onClick={() => {
+    // Không cần làm gì ở đây – dữ liệu đã tự lọc theo searchTerm
+    // Có thể dùng để đóng suggestions nếu muốn
+    setSuggestions([]);
+  }}
 >
   🔍
 </button>
+
 
     </div>
   )}
