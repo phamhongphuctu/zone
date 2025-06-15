@@ -5,16 +5,20 @@ export async function uploadImage(file: File): Promise<string | null> {
   const fileName = `${Date.now()}-${file.name}`;
   const { data, error } = await supabase.storage
     .from("product-images")
-    .upload(fileName, file);
+    .upload(fileName, file, {
+      cacheControl: "3600",
+      upsert: false,
+    });
 
   if (error) {
-    console.error("Lỗi khi upload ảnh:", error);
+    console.error("❌ Upload failed:", error);
     return null;
   }
 
-  const url = supabase.storage
+  // Lấy public URL
+  const { data: publicUrlData } = supabase.storage
     .from("product-images")
-    .getPublicUrl(fileName).data.publicUrl;
+    .getPublicUrl(fileName);
 
-  return url;
+  return publicUrlData?.publicUrl || null;
 }
