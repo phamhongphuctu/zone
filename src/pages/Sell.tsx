@@ -12,13 +12,33 @@ export default function Sell() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+  
+    const product = {
+      country,
+      image: preview,
+      createdAt: new Date().toISOString()
+    };
+  
+    // Lấy danh sách hiện tại từ localStorage
+    const storedData = localStorage.getItem("productsByCountry");
+    const parsedData = storedData ? JSON.parse(storedData) : {};
+  
+    // Thêm sản phẩm vào quốc gia tương ứng
+    const updated = {
+      ...parsedData,
+      [country]: [...(parsedData[country] || []), product]
+    };
+  
+    localStorage.setItem("productsByCountry", JSON.stringify(updated));
+  
     alert(`Sản phẩm đã được gửi đến quốc gia: ${country.toUpperCase()}`);
     navigate(`/${country}`);
   };
-
+  
   const handleExit = () => {
     navigate(`/${country}`);
   };
+  
 
   return (
     <div className="zone-sell-page" style={{ padding: "1rem" }}>

@@ -43,7 +43,9 @@ function App() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const { countryCode } = useParams();
-
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
+  
   const handleSelectCountry = (code: string, label: string) => {
     setCountry(label);
     setShowSelector(false);
@@ -61,7 +63,7 @@ function App() {
     } else {
       i18n.changeLanguage(savedLang);
     }
-
+  
     if (countryCode) {
       const found = piCountries.find((c) => c.code === countryCode);
       if (found) {
@@ -70,6 +72,7 @@ function App() {
       }
     }
   }, [countryCode]);
+  
 
   const renderContactButtons = (contact: any) => {
     
@@ -103,8 +106,7 @@ function App() {
       </div>
     );
   };
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
+
   
 
 
@@ -202,6 +204,7 @@ function App() {
       </div>
     ))}
   </div>
+  
 )}
 
   <div className="zone-product-list">
